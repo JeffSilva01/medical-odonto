@@ -1,6 +1,8 @@
 import Image from 'next/image';
+import { Clock } from 'phosphor-react';
 import { useState } from 'react';
 import logoImage from '../images/logo.jpg';
+import { BookingForm } from './BookingForm';
 
 export function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -46,7 +48,10 @@ export function Header() {
             UNIDADES
           </a>
           <span className="w-44 h-0.5 rounded-full bg-green-300" />
-          <span className="text-white">Segunda-Feira / Sábado</span>
+          <div className="text-white flex items-center gap-2">
+            <Clock size={26} color="#fff" /> <span>Segunda-Feira / Sábado</span>
+          </div>
+          <BookingForm />
         </nav>
       </div>
     </header>
