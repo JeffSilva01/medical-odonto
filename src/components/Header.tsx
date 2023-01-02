@@ -24,34 +24,36 @@ export function Header() {
           />
         </button>
         <nav
-          className={
+          className={`${
             isNavOpen
-              ? 'absolute w-full h-full top-0 left-0 z-10 flex flex-col justify-evenly items-center bg-green-900 bg-opacity-90 backdrop-blur-md rounded drop-shadow-lg'
+              ? 'absolute w-full h-full top-0 left-0 z-10 flex flex-col justify-evenly items-center bg-green-900 bg-opacity-90 backdrop-blur-md rounded'
               : 'hidden'
-          }
+          } md:flex-row md:static md:bg-transparent md:max-w-xl`}
         >
-          <Image className="w-[150px]" src={logoImage} alt="logo" />
+          <Image className="w-[150px] md:hidden" src={logoImage} alt="logo" />
 
-          <a href="#" className="text-white">
+          <a href="#" className="text-white md:text-green-500">
             AGENDAMENTO
           </a>
-          <a href="#" className="text-white">
+          <a href="#" className="text-white md:text-green-500">
             NOSSA HISTÓRIA
           </a>
-          <a href="#" className="text-white">
+          <a href="#" className="text-white md:text-green-500">
             FOTOS
           </a>
-          <a href="#" className="text-white">
+          <a href="#" className="text-white md:text-green-500">
             CRC
           </a>
-          <a href="#" className="text-white">
+          <a href="#" className="text-white md:text-green-500">
             UNIDADES
           </a>
-          <span className="w-44 h-0.5 rounded-full bg-green-300" />
-          <div className="text-white flex items-center gap-2">
+          <span className="w-44 h-0.5 rounded-full bg-green-300 md:hidden" />
+          <div className="text-white flex items-center gap-2 md:hidden">
             <Clock size={26} color="#fff" /> <span>Segunda-Feira / Sábado</span>
           </div>
-          <BookingForm />
+          <div className="md:hidden">
+            <BookingForm />
+          </div>
         </nav>
       </div>
     </header>
