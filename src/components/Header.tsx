@@ -24,11 +24,11 @@ export function Header() {
           />
         </button>
         <nav
-          className={`${
+          className={
             isNavOpen
               ? 'absolute w-full h-full top-0 left-0 z-10 flex flex-col justify-evenly items-center bg-green-900 bg-opacity-90 backdrop-blur-md rounded'
-              : 'hidden'
-          } md:flex-row md:static md:bg-transparent md:max-w-xl`}
+              : 'hidden md:flex md:gap-4 md:flex-row md:static md:bg-transparent md:max-w-xl'
+          }
         >
           <Image className="w-[150px] md:hidden" src={logoImage} alt="logo" />
 
