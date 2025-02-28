@@ -1,0 +1,37 @@
+<div class="mx-auto w-80 rounded bg-white p-4 md:w-[471px]">
+  <p class="mb-4 text-xl text-primary">Agende uma consulta</p>
+  <div class="flex flex-col items-center gap-2 md:flex-row">
+    <input
+      class="w-full outline-none flex h-12 items-center gap-2 rounded border p-2"
+      placeholder="Nome completo"
+      type="text"
+    />
+    <a
+      class="flex w-full items-center justify-center whitespace-nowrap rounded bg-secundary px-2 py-3 text-white md:w-fit"
+      id="whatsapp"
+      target="_blank"
+      href={`https://wa.me/558596120225?text=`}
+    >
+      Quero Agendar
+    </a>
+  </div>
+</div>
+
+<script>
+  const input = document.querySelector("input");
+  const link = document.querySelector("a");
+
+  // Função para atualizar o href do link com o valor do input
+  function atualizarLink() {
+    const nome = input!.value.trim();
+    const textoBase = `Olá, meu nome é ${nome} e gostaria de agendar uma consulta.`;
+    const textoEncoded = encodeURIComponent(textoBase);
+    link!.href = `https://wa.me/558596120225?text=${textoEncoded}`;
+  }
+
+  // Adicionar evento para atualizar o link quando o input mudar
+  input?.addEventListener("input", atualizarLink);
+
+  // Inicializar o link com valor vazio
+  atualizarLink();
+</script>
