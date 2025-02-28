@@ -13,6 +13,7 @@
     "@fontsource/pt-sans-caption": "^5.1.1",
     "@tailwindcss/vite": "^4.0.9",
     "astro": "^5.4.0",
+    "sharp": "^0.33.5",
     "tailwindcss": "^4.0.9"
   },
   "devDependencies": {
