@@ -1,0 +1,36 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: string;
+}
+
+const {
+  title = "Medical Odonto - Clínica Odontológica no Genibaú",
+  description = "Atendimento de qualidade para resolver sua dor de dente. Clínica Medical Odonto no Genibaú, Fortaleza-CE. Aberto aos domingos!",
+  image = "https://medicalodonto.com/logo.png", // Substitua pelo URL real da imagem
+  canonicalURL = Astro.url.href,
+  type = "website",
+} = Astro.props;
+---
+
+<!-- SEO -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
