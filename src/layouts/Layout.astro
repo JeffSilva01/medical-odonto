@@ -17,6 +17,9 @@ import "@fontsource/pt-sans-caption/700.css";
 import SEO from "../components/SEO.astro";
 import Analytics from "../components/analytics.astro";
 
+// Google Tag Manager ID
+const gtmId = "GTM-W9CKXZS7";
+
 const { title, description, image, canonicalURL, type } = Astro.props;
 ---
 
@@ -38,6 +41,17 @@ const { title, description, image, canonicalURL, type } = Astro.props;
     <title>Medical Odonto</title>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      >
+      </iframe>
+    </noscript>
+
     <slot />
   </body>
 </html>
