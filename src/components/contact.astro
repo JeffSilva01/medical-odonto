@@ -5,12 +5,14 @@
       class="w-full outline-none flex h-12 items-center gap-2 rounded border p-2"
       placeholder="Nome completo"
       type="text"
+      id="contact-name"
     />
     <a
       class="flex w-full items-center justify-center whitespace-nowrap rounded bg-secundary px-2 py-3 text-white md:w-fit"
       id="whatsapp"
       target="_blank"
       href={`https://wa.me/5585986849902?text=`}
+      data-source-section=""
     >
       Quero Agendar
     </a>
@@ -19,7 +21,7 @@
 
 <script>
   const input = document.querySelector("input");
-  const link = document.querySelector("a");
+  const link = document.querySelector("a#whatsapp");
 
   // Função para atualizar o href do link com o valor do input
   function atualizarLink() {
@@ -31,6 +33,39 @@
 
   // Adicionar evento para atualizar o link quando o input mudar
   input?.addEventListener("input", atualizarLink);
+
+  // Armazenar a seção de onde o botão foi clicado
+  link?.addEventListener("click", function () {
+    // Encontrar a seção pai mais próxima
+    const parentSection = this.closest('[id$="-section"]');
+    const sectionId = parentSection ? parentSection.id : "unknown-section";
+
+    // Registrar evento de clique no WhatsApp
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "whatsappClick",
+      buttonLocation: sectionId,
+      userName: input?.value.trim() || "not-provided",
+    });
+
+    // Para o Facebook Pixel
+    if (typeof fbq === "function") {
+      fbq("track", "Lead", {
+        source_location: sectionId,
+        user_name: input?.value.trim() || "not-provided",
+      });
+    }
+  });
+
+  // Rastrear interação com o campo de entrada
+  input?.addEventListener("focus", function () {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "formInteraction",
+      interactionType: "focus",
+      fieldId: "contact-name",
+    });
+  });
 
   // Inicializar o link com valor vazio
   atualizarLink();
