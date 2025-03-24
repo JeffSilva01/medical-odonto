@@ -1,0 +1,78 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+---
+
+<section
+  class="relative bg-gradient-to-r from-emerald-50 to-emerald-100 overflow-hidden"
+>
+  <div
+    class="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center"
+  >
+    <div class="md:w-1/2 z-10">
+      <img src="/logo.png" alt="Medical Odonto" class="h-16 mb-6" />
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-bold text-emerald-600 mb-4"
+      >
+        Não deixe a dor de dente atrapalhar sua vida.
+      </h1>
+      <p class="text-xl text-gray-700 mb-8">
+        Atendimento particular de qualidade com preços acessíveis.
+        <span class="font-bold">Abrimos aos domingos!</span>
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <WhatsAppButton
+          text="Agende sua consulta"
+          phone="5585XXXXXXXX"
+          message="Olá! Gostaria de agendar uma consulta na Medical Odonto."
+          primary={true}
+        />
+        <a
+          href="#servicos"
+          class="py-3 px-6 bg-white text-emerald-600 font-medium rounded-lg border-2 border-emerald-600 hover:bg-emerald-50 transition duration-300 text-center"
+        >
+          Conheça nossos serviços
+        </a>
+      </div>
+
+      <div class="mt-8 bg-white p-4 rounded-lg shadow-md inline-block">
+        <p class="text-emerald-700 font-medium">
+          <span class="font-bold">Clínica no Genibaú</span> • Atendimento particular
+        </p>
+      </div>
+    </div>
+
+    <div class="md:w-1/2 mt-10 md:mt-0 relative">
+      <div class="relative z-10">
+        <img
+          src="dentist.jpg"
+          alt="Dentista Medical Odonto"
+          class="rounded-lg shadow-xl"
+        />
+
+        <div class="absolute -top-4 -right-4 bg-white p-3 rounded-lg shadow-lg">
+          <div class="flex items-center gap-2">
+            <div
+              class="bg-emerald-500 text-white rounded-full w-10 h-10 flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <p class="font-bold text-gray-800">Excelência em atendimento</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

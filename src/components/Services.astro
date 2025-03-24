@@ -1,0 +1,90 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+import WhatsAppButton from "./WhatsAppButton.astro";
+
+const services = [
+  {
+    title: "Implantes Dentários",
+    description:
+      "Recupere seu sorriso com implantes de alta qualidade e tecnologia avançada.",
+    icon: "implant",
+    image: "/images/implante.jpg",
+  },
+  {
+    title: "Clareamento Dental",
+    description:
+      "Tenha um sorriso mais branco e brilhante com nosso tratamento de clareamento profissional.",
+    icon: "whitening",
+    image: "/images/clareamento.jpg",
+  },
+  {
+    title: "Ortodontia",
+    description:
+      "Alinhe seus dentes com aparelhos modernos e tratamentos personalizados.",
+    icon: "braces",
+    image: "/images/ortodontia.jpg",
+  },
+  {
+    title: "Próteses Dentárias",
+    description:
+      "Restaure a função e estética do seu sorriso com nossas próteses de alta qualidade.",
+    icon: "denture",
+    image: "/images/protese.jpg",
+  },
+  {
+    title: "Tratamento de Canal",
+    description:
+      "Elimine a dor e salve seu dente natural com nosso tratamento de canal indolor.",
+    icon: "root-canal",
+    image: "/images/canal.jpg",
+  },
+  {
+    title: "Odontopediatria",
+    description:
+      "Cuidados especiais para a saúde bucal das crianças em um ambiente acolhedor.",
+    icon: "pediatric",
+    image: "/images/odontopediatria.jpg",
+  },
+];
+---
+
+<section id="servicos" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Nossos Serviços
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Oferecemos uma ampla gama de tratamentos odontológicos para cuidar da
+        sua saúde bucal com excelência.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            image="placeholder.svg"
+          />
+        ))
+      }
+    </div>
+
+    <div class="mt-16 text-center">
+      <h3 class="text-2xl font-bold text-emerald-600 mb-6">
+        Agende sua consulta agora mesmo e cuide do seu sorriso!
+      </h3>
+      <div class="flex justify-center">
+        <WhatsAppButton
+          text="Falar com um especialista"
+          phone="5585XXXXXXXX"
+          message="Olá! Gostaria de saber mais sobre os serviços da Medical Odonto."
+          primary={true}
+        />
+      </div>
+    </div>
+  </div>
+</section>

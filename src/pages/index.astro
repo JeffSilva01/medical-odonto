@@ -1,116 +1,19 @@
 ---
-import { Image } from "astro:assets";
-import Layout from "../layouts/Layout.astro";
-import Contact from "../components/contact.astro";
-
-import descktopImage from "../assets/background.png";
-import mobileImage from "../assets/background-mobile.png";
-import logo from "../assets/logo.png";
-import provaSocial from "../assets/prova-social.png";
-import icon01 from "../assets/1.svg";
-import icon02 from "../assets/2.svg";
-import icon03 from "../assets/3.svg";
-import icon04 from "../assets/4.svg";
-import foto from "../assets/Foto.png";
-import foto2 from "../assets/Foto2.png";
-import foto3 from "../assets/Foto3.png";
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout>
-  <div class="h-screen">
-    <div id="hero-section" class="relative w-full overflow-hidden pb-8">
-      <Image
-        class="-z-10 hidden w-full h-full md:block absolute object-cover"
-        src={descktopImage}
-        alt=""
-      />
-      <Image
-        class="-z-10 md:hidden w-full h-full block absolute object-cover"
-        src={mobileImage}
-        alt=""
-      />
-      <header
-        id="header-section"
-        class="mx-auto flex max-w-7xl items-center justify-center py-11 md:justify-between"
-      >
-        <Image class="w-52" src={logo} width={366} height={64} alt="" />
-      </header>
-      <div
-        id="hero-cta-section"
-        class="mx-auto px-6 flex max-w-7xl flex-col md:flex-row md:items-end"
-      >
-        <p
-          class="mb-10 text-primary text-3xl font-bold md:ml-0 text-left md:text-6xl"
-        >
-          Não deixe a <br />
-          dor de dente <br />
-          atrapalhar <br />
-          sua vida.
-        </p>
-        <Contact />
-      </div>
-    </div>
-    <div id="services-section" class="bg-primary">
-      <div
-        class="mx-auto flex max-w-7xl flex-col items-center justify-between py-8 md:flex-row"
-      >
-        <Image
-          class="w-96 md:w-[550px] md:-translate-y-16"
-          src={provaSocial}
-          alt=""
-          width={672}
-          height={605}
-        />
-        <div class="w-full">
-          <div class="flex items-center justify-around">
-            <p
-              class="my-10 w-72 text-center text-white md:w-auto md:text-left text-4xl md:text-5xl"
-            >
-              <span class="font-bold block">Resolva hoje!</span>
-              Abrimos aos
-              <span class="font-bold block text-yellow-300"> domingos</span>
-              no genibaú
-            </p>
-            <div class="hidden space-y-4 md:block">
-              <Image src={icon01} width={50} height={50} alt="" />
-              <Image src={icon02} width={50} height={50} alt="" />
-              <Image src={icon03} width={50} height={50} alt="" />
-              <Image src={icon04} width={50} height={50} alt="" />
-            </div>
-          </div>
-          <Contact />
-        </div>
-      </div>
-    </div>
-    <div id="gallery-section" class="flex flex-col md:flex-row">
-      <Image class="md:w-2/6 w-full h-auto" src={foto3} alt="" />
-      <Image class="md:w-2/6 w-full h-auto" src={foto2} alt="" />
-      <Image class="md:w-2/6 w-full h-auto" src={foto} alt="" />
-    </div>
-    <footer
-      id="footer-section"
-      class="bg-emerald-900 py-20 flex-col md:flex-row flex items-center justify-center text-white gap-5"
-    >
-      <a
-        href="#"
-        id="footer-cta"
-        class="block px-5 bg-primary leading-11 font-bold font-stretch-200% rounded-full"
-        >Seja atendido agora</a
-      >
-      <p class="md:text-left text-center">
-        Av. Senador Fernandes Távora, 3227 B - Genibaú, Fortaleza - CE,
-        60534-281<br />
-        instagram:<a
-          href="https://www.instagram.com/medicalodontogenibau/"
-          target="_blank"
-          class="font-bold">@medicalodontogenibaú</a
-        >
-      </p>
-    </footer>
-  </div>
+<Layout title="Medical Odonto - Excelência em Odontologia">
+  <main>
+    <Hero />
+    <Services />
+    <BeforeAfter />
+    <Testimonials />
+  </main>
+  <Footer />
 </Layout>
 
-<script>
-  // Adicionar código de rastreamento ao carregar a página
-  import "../scripts/analytics-tracking.js";
-</script>

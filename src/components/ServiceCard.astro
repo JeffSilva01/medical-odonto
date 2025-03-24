@@ -1,0 +1,61 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  image: string;
+}
+
+const { title, description, icon, image } = Astro.props;
+
+const getIconPath = (iconName: string) => {
+  switch (iconName) {
+    case 'implant':
+      return `<path d="M12 2a4 4 0 0 1 4 4v12a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v12a2 2 0 1 0 4 0V6a2 2 0 0 0-2-2zm-2 16h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>`;
+    case 'whitening':
+      return `<path d="M12 2a9 9 0 0 1 0 18 9 9 0 0 1 0-18zm0 2a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm0 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>`;
+    case 'braces':
+      return `<path d="M5 8h14M5 16h14M8 8v8M16 8v8M12 8v8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>`;
+    case 'denture':
+      return `<path d="M7 8h10M7 16h10M12 8v8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>`;
+    case 'root-canal':
+      return `<path d="M12 2v5m0 3v10M8 10h8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>`;
+    case 'pediatric':
+      return `<path d="M9 10h.01M15 10h.01M9.5 15a3.5 3.5 0 0 0 5 0M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>`;
+    default:
+      return `<path d="M12 2a9 9 0 0 1 0 18 9 9 0 0 1 0-18z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>`;
+  }
+};
+---
+
+<div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+  <div class="relative h-48 overflow-hidden">
+    <img 
+      src={image || "/placeholder.svg"} 
+      alt={title} 
+      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+    />
+    <div class="absolute top-4 right-4 bg-emerald-600 p-2 rounded-full">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <Fragment set:html={getIconPath(icon)} />
+      </svg>
+    </div>
+  </div>
+  
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">{title}</h3>
+    <p class="text-gray-600 mb-4">{description}</p>
+    <a 
+      href={`https://wa.me/5585XXXXXXXX?text=Olá! Gostaria de saber mais sobre ${encodeURIComponent(title)} na Medical Odonto.`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-emerald-600 font-medium flex items-center hover:text-emerald-700 transition"
+    >
+      Saiba mais
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+      </svg>
+    </a>
+  </div>
+</div>
+
